@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FactuurRegel index{% endblock %}
+
+{% block body %}
+    <h1>FactuurRegel index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Aantal</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for factuur_regel in factuur_regels %}
+            <tr>
+                <td>{{ factuur_regel.id }}</td>
+                <td>{{ factuur_regel.Aantal }}</td>
+                <td>
+                    <a href="{{ path('factuur_regel_show', {'id': factuur_regel.id}) }}">show</a>
+                    <a href="{{ path('factuur_regel_edit', {'id': factuur_regel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('factuur_regel_new') }}">Create new</a>
+{% endblock %}

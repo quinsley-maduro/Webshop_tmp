@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FactuurRegel{% endblock %}
+
+{% block body %}
+    <h1>FactuurRegel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ factuur_regel.id }}</td>
+            </tr>
+            <tr>
+                <th>Aantal</th>
+                <td>{{ factuur_regel.Aantal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('factuur_regel_index') }}">back to list</a>
+
+    <a href="{{ path('factuur_regel_edit', {'id': factuur_regel.id}) }}">edit</a>
+
+    {{ include('factuur_regel/_delete_form.html.twig') }}
+{% endblock %}

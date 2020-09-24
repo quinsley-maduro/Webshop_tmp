@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MEMO{% endblock %}
+
+{% block body %}
+    <h1>Create new MEMO</h1>
+
+    {{ include('m_e_m_o/_form.html.twig') }}
+
+    <a href="{{ path('m_e_m_o_index') }}">back to list</a>
+{% endblock %}

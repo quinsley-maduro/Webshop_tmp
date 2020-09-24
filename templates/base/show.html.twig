@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Base{% endblock %}
+
+{% block body %}
+    <h1>Base</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ base.id }}</td>
+            </tr>
+            <tr>
+                <th>Bedrijfsnaam</th>
+                <td>{{ base.Bedrijfsnaam }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ base.Logo }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ base.UpdatedAt ? base.UpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('base_index') }}">back to list</a>
+
+    <a href="{{ path('base_edit', {'id': base.id}) }}">edit</a>
+
+    {{ include('base/_delete_form.html.twig') }}
+{% endblock %}

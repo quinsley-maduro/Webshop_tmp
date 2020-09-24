@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Btw{% endblock %}
+
+{% block body %}
+    <h1>Btw</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ btw.id }}</td>
+            </tr>
+            <tr>
+                <th>Percentage</th>
+                <td>{{ btw.Percentage }}</td>
+            </tr>
+            <tr>
+                <th>Omschrijving</th>
+                <td>{{ btw.Omschrijving }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('btw_index') }}">back to list</a>
+
+    <a href="{{ path('btw_edit', {'id': btw.id}) }}">edit</a>
+
+    {{ include('btw/_delete_form.html.twig') }}
+{% endblock %}

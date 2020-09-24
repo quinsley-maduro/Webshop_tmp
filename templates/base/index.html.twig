@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Base index{% endblock %}
+
+{% block body %}
+    <h1>Base index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bedrijfsnaam</th>
+                <th>Logo</th>
+                <th>Updated_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for base in bases %}
+            <tr>
+                <td>{{ base.id }}</td>
+                <td>{{ base.Bedrijfsnaam }}</td>
+                <td>{{ base.Logo }}</td>
+                <td>{{ base.UpdatedAt ? base.UpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('base_show', {'id': base.id}) }}">show</a>
+                    <a href="{{ path('base_edit', {'id': base.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('base_new') }}">Create new</a>
+{% endblock %}

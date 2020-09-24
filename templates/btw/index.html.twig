@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Btw index{% endblock %}
+
+{% block body %}
+    <h1>Btw index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Percentage</th>
+                <th>Omschrijving</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for btw in btws %}
+            <tr>
+                <td>{{ btw.id }}</td>
+                <td>{{ btw.Percentage }}</td>
+                <td>{{ btw.Omschrijving }}</td>
+                <td>
+                    <a href="{{ path('btw_show', {'id': btw.id}) }}">show</a>
+                    <a href="{{ path('btw_edit', {'id': btw.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('btw_new') }}">Create new</a>
+{% endblock %}
