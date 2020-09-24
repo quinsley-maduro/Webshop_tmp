@@ -4,9 +4,25 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <nav class="navbar navbar-inverse">
+        <a class="navbar-brand" href="#">webshop logo</a>
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="https://127.0.0.1:8000/default/">Home</a></li>
+                <li ><a href="https://127.0.0.1:8000/login/">login</a></li>
+                <li><a href="https://127.0.0.1:8000/register/">registreren</a></li>
+            </ul>
+        </div>
+
+    </nav>
+
+    {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
